@@ -23,14 +23,19 @@ jobs:
 
       - name: Install Android NDK and SDK
         run: |
-          # Baixe e extraia o Android NDK e SDK
+          # Create a directory for the Android SDK
+          mkdir -p $HOME/android/sdk
+
+          # Download and extract the Android SDK Command Line Tools
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O android-sdk.zip
-          unzip -qq android-sdk.zip -d $HOME/android-sdk
-          export ANDROID_HOME=$HOME/android-sdk
+          unzip -qq android-sdk.zip -d $HOME/android/sdk
+
+          # Set ANDROID_HOME and update PATH
+          export ANDROID_HOME=$HOME/android/sdk
           export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 
-          # Instale o SDK do Android
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses # Aceitar todas as licenças
+          # Install the desired SDK components
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses # Accept all licenses
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
 
       - name: Build Go code for Android
