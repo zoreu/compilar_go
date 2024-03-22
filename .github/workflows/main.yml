@@ -29,8 +29,9 @@ jobs:
           # Download and extract the Android SDK Command Line Tools
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O android-sdk.zip
           unzip -qq android-sdk.zip -d $HOME/android/sdk
-          echo "listando arquivos em $HOME/android/sdk/cmdline-tools"
-          ls -la $HOME/android/sdk/cmdline-tools
+          echo "nao tem pasta latest"
+          echo "listando arquivos em $HOME/android/sdk/cmdline-tools/bin"
+          ls -la $HOME/android/sdk/cmdline-tools/bin
 
           # Set ANDROID_HOME and update PATH
           export ANDROID_HOME=$HOME/android/sdk/cmdline-tools/latest
