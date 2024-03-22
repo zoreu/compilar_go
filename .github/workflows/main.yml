@@ -28,7 +28,12 @@ jobs:
 
           # Baixe e extraia as Ferramentas de Linha de Comando do Android SDK
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O android-sdk.zip
-          unzip -qq android-sdk.zip -d $HOME/android/sdk
+          #unzip -qq android-sdk.zip -d $HOME/android/sdk
+          unzip -qq android-sdk.zip -d $HOME/temporario/android/sdk
+          mkdir -p $HOME/android/sdk/cmdline-tools/latest
+          mv $HOME/temporario/android/sdk/cmdline-tools/* $HOME/android/sdk/cmdline-tools/latest
+          mv $HOME/temporario/* $HOME
+          rm -r $HOME/temporario
           #mkdir -p $HOME/android/sdk/cmdline-tools/latest
           #mv $HOME/android/sdk/cmdline-tools/* $HOME/android/sdk/cmdline-tools/latest
           #chmod +x $HOME/android/sdk/latest/cmdline-tools/bin/sdkmanager
