@@ -31,13 +31,15 @@ jobs:
           unzip -qq android-sdk.zip -d $HOME/android/sdk
           chmod +x $HOME/android/sdk/cmdline-tools/bin/sdkmanager
           # Move o diretório cmdline-tools para o local esperado
-          mv $HOME/android/sdk/cmdline-tools $HOME/android/sdk/cmdline-tools/latest
+          mv $HOME/android/sdk/* $HOME/android/sdk/latest/
+          echo "LISTAR ARQUIVOS"
+          ls -la $HOME/android/sdk/lastest
           # Sete ANDROID_HOME e atualize o PATH
-          export ANDROID_HOME=$HOME/android/sdk
-          export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+          #export ANDROID_HOME=$HOME/android/sdk
+          #export PATH=$ANDROID_HOME/latest/cmdline-tool/bin:$PATH
           # Instale os componentes desejados do SDK
-          yes | sdkmanager --licenses > /dev/null
-          sdkmanager "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
+          #yes | sdkmanager --licenses > /dev/null
+          #sdkmanager "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
 
       - name: List Android SDK directory
         run: ls -la $HOME/android/sdk
