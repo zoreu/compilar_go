@@ -30,7 +30,7 @@ jobs:
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O android-sdk.zip
           unzip -qq android-sdk.zip -d $HOME/android/sdk
           echo "LISTAR ARQUIVOS"
-          ls -la $HOME/android/sdk/cmdline-tools
+          ls -la $HOME/android/sdk/cmdline-tools/bin
           # Sete ANDROID_HOME e atualize o PATH
           #export ANDROID_HOME=$HOME/android/sdk
           #export PATH=$PATH:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/cmdline-tools/platform-tools
