@@ -31,12 +31,12 @@ jobs:
           unzip -qq android-sdk.zip -d $HOME/android/sdk
 
           # Set ANDROID_HOME and update PATH
-          export ANDROID_HOME=$HOME/android/sdk
-          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+          export ANDROID_HOME=$HOME/android/sdk/cmdline-tools/latest
+          export PATH=$PATH:$ANDROID_HOME/bin
 
           # Install the desired SDK components
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses # Accept all licenses
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
+          yes | $ANDROID_HOME/bin/sdkmanager --licenses # Aceitar todas as licenças
+          $ANDROID_HOME/bin/sdkmanager "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
 
       - name: Build Go code for Android
         run: |
