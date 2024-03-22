@@ -44,6 +44,7 @@ jobs:
           echo "LISTAR cmdline-tools"
           ls -la $ANDROID_HOME/cmdline-tools/
           #
+          #
           # Instale os componentes desejados do SDK
           #$ANDROID_HOME/cmdline-tools/bin/sdkmanager --licenses > /dev/null
           chmod +x $HOME/android/sdk/cmdline-tools/latest/bin/sdkmanager
