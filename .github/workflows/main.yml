@@ -21,10 +21,10 @@ jobs:
         with:
           go-version: '1.17'
           
-      - name: Setup Python Version
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8        
+      #- name: Setup Python Version
+      #  uses: actions/setup-python@v2
+      #  with:
+      #    python-version: 3.8        
 
       - name: Install Android NDK and SDK
         run: |
@@ -50,17 +50,17 @@ jobs:
           #$ANDROID_HOME/cmdline-tools/bin/sdkmanager --licenses > /dev/null
           #chmod +x $HOME/android/sdk/cmdline-tools/latest/bin/sdkmanager
           ##$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses | python yes.py
-          ./sdkmanager --accept-licenses "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
+          #./sdkmanager --accept-licenses "platforms;android-30" "build-tools;30.0.3" "ndk;21.4.7075529"
 
 
-      #- name: Build Go code for Android
-      #  run: |
-      #    export GOOS=android
-      #    export GOARCH=arm64 # Substitua pelo arquitetura desejada (arm, arm64, x86, x86_64)
-      #    go build -o myapp-android-arm64 ./codigo
+      - name: Build Go code for Android
+        run: |
+          export GOOS=android
+          export GOARCH=arm64 # Substitua pelo arquitetura desejada (arm, arm64, x86, x86_64)
+          go build -o myapp-android-arm64 ./codigo
 
-      #- name: Upload artifact
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name: myapp-android-arm64
-      #    path: ./myapp-android-arm64
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: myapp-android-arm64
+          path: ./myapp-android-arm64
